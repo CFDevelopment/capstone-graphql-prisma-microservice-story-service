@@ -2,14 +2,17 @@
 # import Submission from './generated/prisma.graphql'
 
 type Query {
+  #story queries
   stories(searchString: String!): [Story!]!
   storyById(storyID: ID!): Story
   storiesByProfileId(profileId: ID!): [Story!]!
   searchByKeyword(searchString: String!): [Story!]!
   searchByAuthor(username: String!): [Story!]!
   searchByTitle(title: String!): [Story]
-  getSubmissionsByFlag(flag: Boolean!): [Submission!]!
   allStories: [Story!]!
+  #submission queries
+  allSubmissions: [Submission!]!
+  getSubmissionsByFlag(flag: Boolean!): [Submission!]!
 }
 
 type Mutation {

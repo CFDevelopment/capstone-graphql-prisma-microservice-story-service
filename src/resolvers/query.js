@@ -38,7 +38,6 @@ function storiesByProfileId (_, args, context, info) {
     )
 }
 
-
 function searchByKeyword (_, args, context, info) {
     // const userId = getUserId(context);
     return context.prisma.query.stories(
@@ -69,6 +68,18 @@ function searchByTitle (_, args, context, info) {
     )
 }
 
+function allStories (_, args, context, info) {
+    return context.prisma.query.stories(
+        _, info
+    )
+}
+
+function allSubmissions (_, args, context, info) {
+    return context.prisma.query.submissions(
+        _, info
+    )
+}
+
 
 function getSubmissionsByFlag (_, args, context, info) {     
     return context.prisma.query.submissions(
@@ -86,5 +97,7 @@ module.exports = {
     storiesByProfileId,
     getSubmissionsByFlag,
     searchByKeyword,
-    searchByTitle
+    searchByTitle,
+    allStories,
+    allSubmissions
 }
