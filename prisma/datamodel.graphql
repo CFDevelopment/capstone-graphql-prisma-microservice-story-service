@@ -4,7 +4,7 @@ type Story {
   id: ID! @unique
   parentStoryId: ID
   isCloned: Boolean @default(value: "false")
-  profileId: ID @unique
+  profileId: ID
   title: String!
   description: String 
   content: String
@@ -102,7 +102,6 @@ type Plot {
   plotTwists: [String!]
   subPlots: [String!]
 }
-
 
 #if a user wants a genre that is not yet on the app, they can request for it to be added
 type GenreRequest { 
