@@ -45,7 +45,9 @@ type Mutation {
     profileId: ID,
     title: String, 
     description: String, 
-    content: String
+    content: String,
+    profileId: ID, 
+    submission: ID
   ): Story 
 
   #character mutations

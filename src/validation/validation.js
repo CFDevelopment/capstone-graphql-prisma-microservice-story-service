@@ -3,8 +3,13 @@ const sentencePerBlock = 3
 
 exports.validate = function(submissionId, content) {
  const blockSet = createBlocks(submissionId, content)
- console.log(blockSet)
-  return "hello"
+ for(let i = 0; i < blockSet.blocks.length; i++) {
+   if(blockSet.blocks[i].flags.length != 0) {
+    console.log(blockSet.blocks[i].flags);
+    return false; //if there is a flag in any block return
+   }
+ }
+ return true;
 };
 
 /**
@@ -32,7 +37,6 @@ createBlocks = (submissionId, content) => {
       }
     }
     flagBadBlocks(block)
-    console.log(block.flags)
     blockCollection.blocks.push(block)
   }
   return blockCollection
